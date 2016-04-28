@@ -17,3 +17,10 @@
     ~/.zshrc: zshrc
 
 
+- clean: ['~']
+
+- link:
+    ~/.z: z
+
+- shell:
+      - [git submodule update --init --recursive, Installing submodules]
