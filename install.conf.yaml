@@ -4,3 +4,10 @@
     ~/.vimrc: vimrc
 
 
+- clean: ['~']
+
+- link:
+    ~/.bashrc: bashrc
+    ~/.gitconfig: gitconfig
+
+
