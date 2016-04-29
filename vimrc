@@ -27,8 +27,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 "Git Plugins
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jreybert/vimagit'
 Plugin 'jaxbot/github-issues.vim'
