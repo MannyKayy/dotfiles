@@ -31,6 +31,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jreybert/vimagit'
+Plugin 'jaxbot/github-issues.vim'
 
 "Plugin 'vim-gitgutter'
 " plugin from http://vim-scripts.org/vim/scripts.html
