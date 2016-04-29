@@ -200,8 +200,8 @@ let g:bookmark_highlight_lines = 1
 ""#nnoremap <leader>gm :Gmove<Space>
 ""#nnoremap <leader>gb :Git branch<Space>
 ""#nnoremap <leader>go :Git checkout<Space>
-""#nnoremap <leader>gps :Dispatch! git push<CR>
-""#nnoremap <leader>gpl :Dispatch! git pull<CR>
+""#nnoremap <leader>gps :Gpush<CR>
+""#nnoremap <leader>gpl :Gfetch<CR>
 
 " fugitive git bindings
 nnoremap <space>ga :Git add %:p<CR><CR>
@@ -217,8 +217,8 @@ nnoremap <space>gp :Ggrep<Space>
 nnoremap <space>gm :Gmove<Space>
 nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
-nnoremap <space>gps :Dispatch! git push -u<CR>
-nnoremap <space>gpl :Dispatch! git pull<CR>
+nnoremap <space>gps :Gpush -u<CR>
+nnoremap <space>gpl :Gfetch<CR>
 ""#" same bindings for merging diffs as in normal mode
 ""#xnoremap dp :diffput<cr>
 ""#xnoremap do :diffget<cr>
