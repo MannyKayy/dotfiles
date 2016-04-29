@@ -17,7 +17,7 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000000
-HISTFILESIZE=100000
+HISTFILESIZE=1000000
 HISTCONTROL=ignoreboth
 HISTTIMEFORMAT='%F %T '
 shopt -s cmdhist
@@ -116,3 +116,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# ROS Related
+source /opt/ros/indigo/setup.bash
+source ~/ROS/PR2/catkin_ws/devel/setup.bash

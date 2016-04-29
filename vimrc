@@ -28,6 +28,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Git Plugins
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jreybert/vimagit'
 
@@ -184,7 +185,23 @@ let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
 
-"Vim fugitive bindings
+""#"Vim fugitive bindings
+""#nnoremap <leader>gs :Gstatus<CR>
+""#nnoremap <leader>gc :Gcommit -v -q<CR>
+""#nnoremap <leader>ga :Gcommit --amend<CR>
+""#nnoremap <leader>gt :Gcommit -v -q %<CR>
+""#nnoremap <leader>gd :Gdiff<CR>
+""#nnoremap <leader>ge :Gedit<CR>
+""#nnoremap <leader>gr :Gread<CR>
+""#nnoremap <leader>gw :Gwrite<CR><CR>
+""#nnoremap <leader>gl :silent! Glog<CR>
+""#nnoremap <leader>gp :Ggrep<Space>
+""#nnoremap <leader>gm :Gmove<Space>
+""#nnoremap <leader>gb :Git branch<Space>
+""#nnoremap <leader>go :Git checkout<Space>
+""#nnoremap <leader>gps :Dispatch! git push<CR>
+""#nnoremap <leader>gpl :Dispatch! git pull<CR>
+
 " fugitive git bindings
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
@@ -199,7 +216,7 @@ nnoremap <space>gp :Ggrep<Space>
 nnoremap <space>gm :Gmove<Space>
 nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
-nnoremap <space>gps :Dispatch! git push<CR>
+nnoremap <space>gps :Dispatch! git push -u<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
 ""#" same bindings for merging diffs as in normal mode
 ""#xnoremap dp :diffput<cr>
