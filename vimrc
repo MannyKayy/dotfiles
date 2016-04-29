@@ -81,8 +81,8 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Bundle 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 ""#
-""#"UltiSnips
-""#Plugin 'SirVer/ultisnips'
+"UltiSnips
+Plugin 'SirVer/ultisnips'
 ""#Plugin 'honza/vim-snippets'
 ""#
 ""#"Browsing
