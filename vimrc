@@ -472,6 +472,8 @@ let g:airline_powerline_fonts = 1
 set hlsearch
 set smartcase
 set incsearch
+"search ancestor given that it is in the git repo
+let g:ctrlp_working_path_mode = 'ra'
 
 ""#"Supertab options
 ""#let g:SuperTabDefaultCompletionType = "context"
