@@ -54,7 +54,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Bundle 'Valloric/YouCompleteMe'
 
 ""#"Syntax checking and highlighting
-""#Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 ""#Plugin 'nvie/vim-flake8'
 ""#
 ""#
@@ -83,58 +83,59 @@ Plugin 'vim-airline/vim-airline-themes'
 ""#
 "UltiSnips
 Plugin 'SirVer/ultisnips'
-""#Plugin 'honza/vim-snippets'
-""#
-""#"Browsing
-""#Plugin 'tpope/vim-vinegar'
-""#
-""#Plugin 'majutsushi/tagbar'
-""#"Plugin 'xolox/vim-misc'
-""#"Plugin 'xolox/vim-easytags'
-""#" All of your Plugins must be added before the following line
-""#Plugin 'jiangmiao/auto-pairs'
-""#Plugin 'henrik/vim-indexed-search'
-""#Plugin 'terryma/vim-multiple-cursors'
-""#Plugin 'terryma/vim-expand-region'
-""#"Plugin 'jeaye/color_coded'
-""#Plugin 'stephpy/vim-yaml'
-""#Plugin 'jlanzarotta/bufexplorer'
-""#Plugin 'ekalinin/Dockerfile.vim'
-""#Plugin 'sjl/gundo.vim'
-""#Plugin 'tpope/vim-cucumber'
-""#Plugin 'tpope/vim-endwise'
-""#Plugin 'tpope/vim-eunuch'
+Plugin 'honza/vim-snippets'
+
+"Browsing
+Plugin 'tpope/vim-vinegar'
+
+Plugin 'majutsushi/tagbar'
+Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-easytags'
+" All of your Plugins must be added before the following line
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'henrik/vim-indexed-search'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-expand-region'
+"Plugin 'jeaye/color_coded'
+Plugin 'stephpy/vim-yaml'
+"Plugin 'jlanzarotta/bufexplorer'
+"Plugin 'ekalinin/Dockerfile.vim'
+"Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-surround'
-""#Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-sensible'
-""#Plugin 'tpope/vim-repeat'
-""#Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'junegunn/vim-easy-align'
-""#Plugin 'junegunn/vim-pseudocl'
-""#Plugin 'junegunn/vim-oblique'
-""#"Plugin 'vim-ctrlspace/vim-ctrlspace'
-""#
-""#Plugin 'wesQ3/vim-windowswap'
+"Plugin 'junegunn/vim-pseudocl'
+"Plugin 'junegunn/vim-oblique'
+"Plugin 'vim-ctrlspace/vim-ctrlspace'
+
+"Plugin 'wesQ3/vim-windowswap'
 ""#Plugin 'jmcantrell/vim-virtualenv'
 ""#Plugin 'chrisbra/csv.vim'
-""#Plugin 'mkitt/tabline.vim'
-""#
+Plugin 'mkitt/tabline.vim'
+
 Plugin 'chrisbra/NrrwRgn'
-""#"Plugin 'go2null/Mark--Karkat'
-""#Plugin 'gcmt/taboo.vim'
-""#Plugin 'rodjek/vim-puppet'
-""#Plugin 'airblade/vim-rooter'
-""#Plugin 'bronson/vim-visual-star-search'
-""#Plugin 'michaeljsmith/vim-indent-object'
-""#Plugin 'vim-scripts/tComment'
-""#Plugin 'tomtom/quickfixsigns_vim'
-""#"Plugin 'klen/python-mode'
-""#Plugin 'justinmk/vim-gtfo'
-""#Plugin 'justinmk/vim-dirvish'
-""#Plugin 'justinmk/vim-sneak'
-""#Plugin 'Yggdroot/hiPairs'
-""#Plugin 'Yggdroot/indentLine'
-""#Plugin 'MattesGroeger/vim-bookmarks'
+"Plugin 'go2null/Mark--Karkat'
+Plugin 'gcmt/taboo.vim'
+Plugin 'rodjek/vim-puppet'
+Plugin 'airblade/vim-rooter'
+Plugin 'bronson/vim-visual-star-search'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'vim-scripts/tComment'
+"Plugin 'tomtom/quickfixsigns_vim'
+"Plugin 'klen/python-mode'
+Plugin 'justinmk/vim-gtfo'
+Plugin 'justinmk/vim-dirvish'
+Plugin 'justinmk/vim-sneak'
+""# Slows down everything -> Plugin 'Yggdroot/hiPairs'
+Plugin 'Yggdroot/indentLine'
+Plugin 'MattesGroeger/vim-bookmarks'
+"Plugin 'osyo-manga/vim-marching'
+"Plugin 'vim-scripts/SingleCompile'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -179,6 +180,15 @@ highlight ColorColumn ctermbg=darkgray
 "Search both directories
 let &path.="src/include,/usr/include/AL,/usr/include/"
 
+"Append to the end of a line
+function! ToggleEndChar(charToMatch)
+    s/\v(.)$/\=submatch(1)==a:charToMatch ? '' : submatch(1).a:charToMatch
+endfunction
+nnoremap ;; :call ToggleEndChar(';')<CR>
+
+"Paste with formating
+set paste
+
 "Vim Bookmarks
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
@@ -186,6 +196,9 @@ let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
 
+"Compile and run
+nmap <F9> :SCCompile<cr>
+nmap <F10> :SCCompileRun<cr>
 ""#"Vim fugitive bindings
 ""#nnoremap <leader>gs :Gstatus<CR>
 ""#nnoremap <leader>gc :Gcommit -v -q<CR>
@@ -321,15 +334,52 @@ set sessionoptions+=tabpages,globals
 "AutoComplete
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+"-----------------------------------------------------------
+" YouCompleteMe - Intelligent completion with fuzzy matching
+"-----------------------------------------------------------
 
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+let g:ycm_dont_warn_on_startup = 0
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+let g:ycm_filetype_blacklist = {}
+
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+"--------------------------------------------------
+" Supertab - enhanced tab behavior based on context
+"--------------------------------------------------
+
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+
+"----------------------------------------
+" UltiSnips - Fancy snippet functionality
+"----------------------------------------
+
+let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsExpandTrigger           = '<Enter>'
+let g:UltiSnipsJumpForwardTrigger      = '<Enter>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-Enter>'
+
+nnoremap <leader>ue :UltiSnipsEdit<cr>
+
+" vim:ft=vim
+
+
+""#" make YCM compatible with UltiSnips (using supertab)
+""#let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+""#let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+""#let g:SuperTabDefaultCompletionType = '<C-n>'
+""#
+""#" better key bindings for UltiSnipsExpandTrigger
+""#let g:UltiSnipsExpandTrigger = "<tab>"
+""#let g:UltiSnipsJumpForwardTrigger = "<tab>"
+""#let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 "let g:ycm_key_list_select_completion=[]
 "let g:ycm_key_list_previous_completion=[]
@@ -423,9 +473,9 @@ set hlsearch
 set smartcase
 set incsearch
 
-"Supertab options
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+""#"Supertab options
+""#let g:SuperTabDefaultCompletionType = "context"
+""#let g:SuperTabContextDefaultCompletionType = "context"
 
 "Access system clipboard
 set clipboard=unnamed
@@ -538,7 +588,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_cpp_check_header = 0
+:
 ""#" Cern Root, python bindings for vim-root
 ""#:setfiletype python.root
 ""#:setf python.root
