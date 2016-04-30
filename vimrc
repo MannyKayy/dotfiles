@@ -231,7 +231,7 @@ nnoremap <space>gm :Gmove<Space>
 nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gpm :Gpush -u origin master<CR>
-nnoremap <space>gpb :Gpush -u<CR>
+nnoremap <space>gpb :Gpush<CR>
 nnoremap <space>gpl :Gfetch<CR>
 ""#" same bindings for merging diffs as in normal mode
 ""#xnoremap dp :diffput<cr>
