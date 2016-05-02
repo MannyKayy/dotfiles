@@ -117,6 +117,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+. $HOME/z/z.sh
+
 # ROS Related
 source /opt/ros/indigo/setup.bash
 source ~/ROS/PR2/catkin_ws/devel/setup.bash
+source ~/ROS/PR2/pr2_ws/devel/setup.bash
