@@ -136,6 +136,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'MattesGroeger/vim-bookmarks'
 "Plugin 'osyo-manga/vim-marching'
 "Plugin 'vim-scripts/SingleCompile'
+Plugin 'taketwo/vim-ros'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -333,6 +334,12 @@ set sessionoptions+=tabpages,globals
 
 "AutoComplete
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
+" ROS AutoComplete
+let g:ycm_semantic_triggers = {
+\   'roslaunch' : ['="', '$(', '/'],
+\   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
+\ }
 
 "-----------------------------------------------------------
 " YouCompleteMe - Intelligent completion with fuzzy matching
