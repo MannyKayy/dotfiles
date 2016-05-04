@@ -122,3 +122,4 @@ fi
 # ROS Related
 source /opt/ros/indigo/setup.bash
 source ~/ROS/PR2/catkin_ws/rad_pr2_stack/pr2_demo/devel/setup.bash
+export KINECT2=true
