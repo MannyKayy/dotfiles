@@ -62,7 +62,7 @@ Bundle 'Valloric/YouCompleteMe'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 "Super Tab
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 ""#Plugin 'junegunn/fzf.vim'
@@ -188,7 +188,7 @@ endfunction
 nnoremap ;; :call ToggleEndChar(';')<CR>
 
 "Paste with formating
-set paste
+:set pastetoggle=<F7>
 
 "Vim Bookmarks
 highlight BookmarkSign ctermbg=NONE ctermfg=160
@@ -358,25 +358,24 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 let g:ycm_filetype_blacklist = {}
 
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-
+let g:ycm_key_list_select_completion   = ['<tab>']
+let g:ycm_key_list_previous_completion = ['<s-tab>']
 "--------------------------------------------------
 " Supertab - enhanced tab behavior based on context
 "--------------------------------------------------
-
-let g:SuperTabDefaultCompletionType    = '<C-n>'
-let g:SuperTabCrMapping                = 0
-
+""#
+""#let g:SuperTabDefaultCompletionType    = '<tab>'
+""#let g:SuperTabCrMapping                = 0
+""#
 "----------------------------------------
 " UltiSnips - Fancy snippet functionality
 "----------------------------------------
 
 let g:UltiSnipsSnippetsDir='~/.vim/snippets'
 let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsExpandTrigger           = '<Enter>'
-let g:UltiSnipsJumpForwardTrigger      = '<Enter>'
-let g:UltiSnipsJumpBackwardTrigger     = '<s-Enter>'
+let g:UltiSnipsExpandTrigger           = '<C-n>'
+let g:UltiSnipsJumpForwardTrigger      = '<C-n>'
+let g:UltiSnipsJumpBackwardTrigger     = '<C-j>'
 
 nnoremap <leader>ue :UltiSnipsEdit<cr>
 
