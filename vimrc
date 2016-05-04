@@ -200,6 +200,11 @@ let g:bookmark_highlight_lines = 1
 "Compile and run
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
+
+" ROS launch - project specific
+nnoremap <leader>rl :!roslaunch pr2_py pr2_demo.launch<CR>
+nnoremap <leader>rm :!cd ~/ROS/PR2/catkin_ws/rad_pr2_stack/pr2_demo/ && rm -rf build/ $$ rm -rf devel/ && catkin_make<CR>
+
 ""#"Vim fugitive bindings
 ""#nnoremap <leader>gs :Gstatus<CR>
 ""#nnoremap <leader>gc :Gcommit -v -q<CR>
